@@ -12,23 +12,23 @@ export const RECIPES = [
 ];
 
 export const EXERCISES = [
-  { name: "Yoga Matinal", duration: 15, desc: "Saudação ao sol, mobilidade e respiração." },
-  { name: "Treino HIIT", duration: 20, desc: "Cardio intenso para queima rápida." },
-  { name: "Glúteos em Casa", duration: 18, desc: "Agachamento, afundo e ponte." },
-  { name: "Caminhada Acelerada", duration: 30, desc: "Aeróbico leve, ideal para emagrecer." },
-  { name: "Pilates Iniciante", duration: 20, desc: "Fortalece o core e melhora a postura." },
-  { name: "Alongamento Total", duration: 15, desc: "Relaxa o corpo e alivia tensões." },
-  { name: "Cardio Dance", duration: 25, desc: "Queime calorias dançando." },
-  { name: "Treino Abdominal", duration: 12, desc: "Sequência completa de abdômen." },
+  { name: "Yoga Matinal", duration: 15, desc: "Saudação ao sol, mobilidade e respiração.", url: "https://www.youtube.com/results?search_query=yoga+matinal+15+minutos" },
+  { name: "Treino HIIT", duration: 20, desc: "Cardio intenso para queima rápida.", url: "https://www.youtube.com/results?search_query=treino+hiit+20+minutos+emagrecer" },
+  { name: "Glúteos em Casa", duration: 18, desc: "Agachamento, afundo e ponte.", url: "https://www.youtube.com/results?search_query=treino+gluteos+em+casa" },
+  { name: "Caminhada Acelerada", duration: 30, desc: "Aeróbico leve, ideal para emagrecer.", url: "https://www.youtube.com/results?search_query=caminhada+acelerada+em+casa" },
+  { name: "Pilates Iniciante", duration: 20, desc: "Fortalece o core e melhora a postura.", url: "https://www.youtube.com/results?search_query=pilates+iniciante+em+casa" },
+  { name: "Alongamento Total", duration: 15, desc: "Relaxa o corpo e alivia tensões.", url: "https://www.youtube.com/results?search_query=alongamento+corpo+todo+15+minutos" },
+  { name: "Cardio Dance", duration: 25, desc: "Queime calorias dançando.", url: "https://www.youtube.com/results?search_query=dance+workout+emagrecer" },
+  { name: "Treino Abdominal", duration: 12, desc: "Sequência completa de abdômen.", url: "https://www.youtube.com/results?search_query=treino+abdominal+10+minutos" },
 ];
 
 export const MEDITATIONS = [
-  { name: "Meditação Guiada", desc: "Encontre paz interior em 10 minutos.", duration: 10, type: "Mindfulness" },
-  { name: "Sons da Natureza", desc: "Floresta, chuva e oceano.", duration: 30, type: "Sons" },
-  { name: "Respiração Anti-Ansiedade", desc: "Técnica 4-7-8 para acalmar.", duration: 7, type: "Respiração" },
-  { name: "Músicas Relaxantes", desc: "Frequências 432Hz e piano suave.", duration: 45, type: "Música" },
-  { name: "Relaxamento para Dormir", desc: "Body scan profundo antes de dormir.", duration: 20, type: "Sono" },
-  { name: "Meditação da Autoestima", desc: "Reconecte-se com seu valor.", duration: 12, type: "Mindfulness" },
+  { name: "Meditação Guiada", desc: "Encontre paz interior em 10 minutos.", duration: 10, type: "Mindfulness", url: "https://www.youtube.com/results?search_query=medita%C3%A7%C3%A3o+guiada+10+minutos" },
+  { name: "Sons da Natureza", desc: "Floresta, chuva e oceano.", duration: 30, type: "Sons", url: "https://www.youtube.com/results?search_query=sons+da+natureza+relaxante" },
+  { name: "Respiração Anti-Ansiedade", desc: "Técnica 4-7-8 para acalmar.", duration: 7, type: "Respiração", url: "https://www.youtube.com/results?search_query=respira%C3%A7%C3%A3o+4-7-8+ansiedade" },
+  { name: "Músicas Relaxantes 432Hz", desc: "Frequências 432Hz e piano suave.", duration: 45, type: "Música", url: "https://open.spotify.com/search/musicas%20relaxantes%20432hz" },
+  { name: "Relaxamento para Dormir", desc: "Body scan profundo antes de dormir.", duration: 20, type: "Sono", url: "https://www.youtube.com/results?search_query=relaxamento+para+dormir+profundo" },
+  { name: "Meditação da Autoestima", desc: "Reconecte-se com seu valor.", duration: 12, type: "Mindfulness", url: "https://www.youtube.com/results?search_query=medita%C3%A7%C3%A3o+autoestima+feminina" },
 ];
 
 export const PROCEDURES = [

@@ -9,7 +9,7 @@ export const Route = createFileRoute("/app")({ component: AppLayout });
 function AppLayout() {
   const nav = useNavigate();
   useEffect(() => {
-    if (!isAuthed()) nav({ to: "/login" });
+    if (!isAuthed()) nav({ to: "/login", replace: true });
   }, [nav]);
 
   return (

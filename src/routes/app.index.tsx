@@ -4,7 +4,17 @@ import { Logo } from "@/components/app/Logo";
 import { currentDay, getPlan } from "@/lib/plan";
 import { ChefHat, Dumbbell, Heart, CalendarCheck, Sparkles, Info, TrendingUp } from "lucide-react";
 
-export const Route = createFileRoute("/app/")({ component: Home });
+export const Route = createFileRoute("/app/")({
+  component: Home,
+  head: () => ({
+    meta: [
+      { title: "Início | Vivian Finoti Estética Avançada" },
+      { name: "description", content: "Seu plano completo para transformar corpo, mente e autoestima com a Vivian Finoti." },
+      { property: "og:title", content: "Início | Vivian Finoti Estética Avançada" },
+      { property: "og:description", content: "Seu plano completo para transformar corpo, mente e autoestima com a Vivian Finoti." },
+    ],
+  }),
+});
 
 const tiles = [
   { to: "/app/recipes", label: "Receitas e Chás", desc: "Nutritivas e detox", Icon: ChefHat },

@@ -4,9 +4,17 @@ import { motion } from "framer-motion";
 import { PageHeader } from "@/components/app/PageHeader";
 import { EXERCISES } from "@/data/content";
 import exercisesImg from "@/assets/exercises.jpg";
-import { Play, Pause, RotateCcw, Timer } from "lucide-react";
+import { Play, Pause, RotateCcw, Timer, ExternalLink } from "lucide-react";
 
-export const Route = createFileRoute("/app/exercises")({ component: Exercises });
+export const Route = createFileRoute("/app/exercises")({
+  component: Exercises,
+  head: () => ({
+    meta: [
+      { title: "Exercícios para Emagrecer | Vivian Finoti" },
+      { name: "description", content: "Treinos guiados em vídeo: HIIT, pilates, glúteos, alongamento e mais — direto do YouTube." },
+    ],
+  }),
+});
 
 function Exercises() {
   const [seconds, setSeconds] = useState(0);
@@ -48,18 +56,23 @@ function Exercises() {
           {EXERCISES.map((e, i) => (
             <motion.li
               key={e.name}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.04 * i }}
-              className="glass flex items-center gap-3 rounded-2xl p-4 shadow-soft"
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ delay: 0.04 * i, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              whileTap={{ scale: 0.98 }}
+              className="glass rounded-2xl shadow-soft"
             >
-              <div className="grid h-12 w-12 place-items-center rounded-xl bg-gradient-rose font-display text-primary-foreground">
-                {e.duration}'
-              </div>
-              <div className="flex-1">
-                <p className="font-semibold">{e.name}</p>
-                <p className="text-xs text-muted-foreground">{e.desc}</p>
-              </div>
+              <a href={e.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4">
+                <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-gradient-rose font-display text-primary-foreground">
+                  {e.duration}'
+                </div>
+                <div className="flex-1">
+                  <p className="font-semibold">{e.name}</p>
+                  <p className="text-xs text-muted-foreground">{e.desc}</p>
+                </div>
+                <ExternalLink className="h-4 w-4 text-muted-foreground" />
+              </a>
             </motion.li>
           ))}
         </ul>

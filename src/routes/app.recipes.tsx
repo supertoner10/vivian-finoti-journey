@@ -6,7 +6,17 @@ import { RECIPES } from "@/data/content";
 import recipesImg from "@/assets/recipes.jpg";
 import { Clock } from "lucide-react";
 
-export const Route = createFileRoute("/app/recipes")({ component: Recipes });
+export const Route = createFileRoute("/app/recipes")({
+  component: Recipes,
+  head: () => ({
+    meta: [
+      { title: "Receitas Saudáveis e Chás Detox | Vivian Finoti" },
+      { name: "description", content: "Receitas leves, smoothies, sucos e chás detox para acelerar sua transformação." },
+      { property: "og:title", content: "Receitas Saudáveis e Chás Detox | Vivian Finoti" },
+      { property: "og:description", content: "Receitas leves, smoothies, sucos e chás detox para acelerar sua transformação." },
+    ],
+  }),
+});
 
 const cats = ["Todas", "Fitness", "Detox", "Low Carb", "Smoothie", "Chás"];
 

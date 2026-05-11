@@ -6,7 +6,17 @@ import { PLAN_DAYS } from "@/data/plan-days";
 import { currentDay, getPlan, resetPlan } from "@/lib/plan";
 import { CheckCircle2, Lock, Sparkles, RotateCcw } from "lucide-react";
 
-export const Route = createFileRoute("/app/plan")({ component: PlanPage });
+export const Route = createFileRoute("/app/plan")({
+  component: PlanPage,
+  head: () => ({
+    meta: [
+      { title: "Plano de 30 Dias | Vivian Finoti" },
+      { name: "description", content: "Programa de transformação em 30 dias com receitas, chás detox, exercícios e meditação." },
+      { property: "og:title", content: "Plano de 30 Dias | Vivian Finoti" },
+      { property: "og:description", content: "Programa de transformação em 30 dias com receitas, chás detox, exercícios e meditação." },
+    ],
+  }),
+});
 
 function PlanPage() {
   const nav = useNavigate();

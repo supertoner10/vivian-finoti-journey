@@ -5,7 +5,17 @@ import { login } from "@/lib/auth";
 import { Logo } from "@/components/app/Logo";
 import { Eye, EyeOff, Lock } from "lucide-react";
 
-export const Route = createFileRoute("/login")({ component: LoginPage });
+export const Route = createFileRoute("/login")({
+  component: LoginPage,
+  head: () => ({
+    meta: [
+      { title: "Acesso Exclusivo | Vivian Finoti" },
+      { name: "description", content: "Área exclusiva para clientes da Clínica Vivian Finoti Estética Avançada." },
+      { property: "og:title", content: "Acesso Exclusivo | Vivian Finoti" },
+      { property: "og:description", content: "Área exclusiva para clientes da Clínica Vivian Finoti Estética Avançada." },
+    ],
+  }),
+});
 
 function LoginPage() {
   const nav = useNavigate();

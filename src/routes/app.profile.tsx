@@ -6,7 +6,17 @@ import { getPlan, setProfile, currentDay, resetPlan } from "@/lib/plan";
 import { logout } from "@/lib/auth";
 import { Trophy, Target, Scale, RotateCcw, LogOut, Heart } from "lucide-react";
 
-export const Route = createFileRoute("/app/profile")({ component: Profile });
+export const Route = createFileRoute("/app/profile")({
+  component: Profile,
+  head: () => ({
+    meta: [
+      { title: "Meu Perfil | Vivian Finoti" },
+      { name: "description", content: "Acompanhe seu progresso, peso e meta na sua jornada de bem-estar." },
+      { property: "og:title", content: "Meu Perfil | Vivian Finoti" },
+      { property: "og:description", content: "Acompanhe seu progresso, peso e meta na sua jornada de bem-estar." },
+    ],
+  }),
+});
 
 function Profile() {
   const nav = useNavigate();

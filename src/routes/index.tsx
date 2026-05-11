@@ -10,7 +10,7 @@ export const Route = createFileRoute("/")({ component: Splash });
 function Splash() {
   const nav = useNavigate();
   useEffect(() => {
-    if (isAuthed()) nav({ to: "/app" });
+    if (isAuthed()) nav({ to: "/app", replace: true });
   }, [nav]);
 
   return (
