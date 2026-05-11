@@ -71,43 +71,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   head: () => ({
     meta: [
       { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
-      { name: "theme-color", content: "#d8a7a0" },
-      { title: "Vivian Finoti Estética Avançada — Beleza e Cuidado" },
-      { name: "description", content: "Clínica Vivian Finoti: plano de transformação em 30 dias, receitas, exercícios, meditação e procedimentos estéticos premium." },
-      { name: "keywords", content: "estética avançada, vivian finoti, botox, preenchimento, depilação a laser, criolipólise, emagrecimento, autoestima" },
-      { name: "author", content: "Vivian Finoti Estética Avançada" },
-      { name: "robots", content: "index, follow" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { title: "Vivian Finoti Estética Avançada" },
+      { name: "description", content: "Beleza e Cuidado em um só lugar — plano de transformação 30 dias e procedimentos estéticos premium." },
+      { name: "author", content: "Vivian Finoti" },
       { property: "og:title", content: "Vivian Finoti Estética Avançada" },
-      { property: "og:description", content: "Beleza e Cuidado em um só lugar." },
+      { property: "og:description", content: "Beleza e Cuidado em um só lugar — plano de transformação 30 dias e procedimentos estéticos premium." },
       { property: "og:type", content: "website" },
-      { property: "og:locale", content: "pt_BR" },
-      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "Vivian Finoti Estética Avançada" },
+      { name: "twitter:description", content: "Beleza e Cuidado em um só lugar — plano de transformação 30 dias e procedimentos estéticos premium." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/a0ee3a2b-f369-46c6-8942-02c92ca3eae5" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/a0ee3a2b-f369-46c6-8942-02c92ca3eae5" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" },
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", type: "image/png", href: "/favicon.png" },
-      { rel: "shortcut icon", type: "image/png", href: "/favicon.png" },
-      { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
-    ],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "BeautySalon",
-          name: "Clínica Vivian Finoti Estética Avançada",
-          description: "Beleza e Cuidado em um só lugar.",
-          telephone: "+55 11 99842-8546",
-          sameAs: [
-            "https://www.facebook.com/profile.php?id=61574353801473",
-            "https://www.instagram.com/vivianfinoti_esteticaavancada/",
-          ],
-        }),
-      },
     ],
   }),
   shellComponent: RootShell,
@@ -118,7 +99,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR">
+    <html lang="en">
       <head>
         <HeadContent />
       </head>
@@ -135,10 +116,8 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="min-h-screen w-full bg-gradient-soft">
-        <div className="mx-auto min-h-screen w-full max-w-[480px] bg-gradient-soft shadow-soft sm:my-6 sm:min-h-0 sm:rounded-[2.5rem] sm:overflow-hidden sm:border sm:border-border/60 sm:shadow-glow md:max-w-[520px] lg:max-w-[560px]">
-          <Outlet />
-        </div>
+      <div className="mx-auto min-h-screen w-full max-w-[480px] bg-gradient-soft shadow-soft">
+        <Outlet />
       </div>
     </QueryClientProvider>
   );
