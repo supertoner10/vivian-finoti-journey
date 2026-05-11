@@ -13,7 +13,10 @@ import { Route as LoginRouteImport } from './routes/login'
 import { Route as AppRouteImport } from './routes/app'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AppIndexRouteImport } from './routes/app.index'
+import { Route as AppRecipesRouteImport } from './routes/app.recipes'
 import { Route as AppPlanRouteImport } from './routes/app.plan'
+import { Route as AppMeditationRouteImport } from './routes/app.meditation'
+import { Route as AppExercisesRouteImport } from './routes/app.exercises'
 import { Route as AppPlanRouteImport } from './routes/app.plan.'
 
 const LoginRoute = LoginRouteImport.update({
@@ -36,9 +39,24 @@ const AppIndexRoute = AppIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AppRoute,
 } as any)
+const AppRecipesRoute = AppRecipesRouteImport.update({
+  id: '/recipes',
+  path: '/recipes',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppPlanRoute = AppPlanRouteImport.update({
   id: '/plan',
   path: '/plan',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppMeditationRoute = AppMeditationRouteImport.update({
+  id: '/meditation',
+  path: '/meditation',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppExercisesRoute = AppExercisesRouteImport.update({
+  id: '/exercises',
+  path: '/exercises',
   getParentRoute: () => AppRoute,
 } as any)
 const AppPlanRoute = AppPlanRouteImport.update({
@@ -51,13 +69,19 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/app': typeof AppRouteWithChildren
   '/login': typeof LoginRoute
+  '/app/exercises': typeof AppExercisesRoute
+  '/app/meditation': typeof AppMeditationRoute
   '/app/plan': typeof AppPlanRouteWithChildren
+  '/app/recipes': typeof AppRecipesRoute
   '/app/': typeof AppIndexRoute
   '/app/plan/': typeof AppPlanRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
+  '/app/exercises': typeof AppExercisesRoute
+  '/app/meditation': typeof AppMeditationRoute
+  '/app/recipes': typeof AppRecipesRoute
   '/app': typeof AppIndexRoute
   '/app/plan': typeof AppPlanRoute
 }
@@ -66,21 +90,43 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/app': typeof AppRouteWithChildren
   '/login': typeof LoginRoute
+  '/app/exercises': typeof AppExercisesRoute
+  '/app/meditation': typeof AppMeditationRoute
   '/app/plan': typeof AppPlanRouteWithChildren
+  '/app/recipes': typeof AppRecipesRoute
   '/app/': typeof AppIndexRoute
   '/app/plan/': typeof AppPlanRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/app' | '/login' | '/app/plan' | '/app/' | '/app/plan/'
+  fullPaths:
+    | '/'
+    | '/app'
+    | '/login'
+    | '/app/exercises'
+    | '/app/meditation'
+    | '/app/plan'
+    | '/app/recipes'
+    | '/app/'
+    | '/app/plan/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/login' | '/app' | '/app/plan'
+  to:
+    | '/'
+    | '/login'
+    | '/app/exercises'
+    | '/app/meditation'
+    | '/app/recipes'
+    | '/app'
+    | '/app/plan'
   id:
     | '__root__'
     | '/'
     | '/app'
     | '/login'
+    | '/app/exercises'
+    | '/app/meditation'
     | '/app/plan'
+    | '/app/recipes'
     | '/app/'
     | '/app/plan/'
   fileRoutesById: FileRoutesById
@@ -121,11 +167,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppIndexRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/recipes': {
+      id: '/app/recipes'
+      path: '/recipes'
+      fullPath: '/app/recipes'
+      preLoaderRoute: typeof AppRecipesRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/app/plan': {
       id: '/app/plan'
       path: '/plan'
       fullPath: '/app/plan'
       preLoaderRoute: typeof AppPlanRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/meditation': {
+      id: '/app/meditation'
+      path: '/meditation'
+      fullPath: '/app/meditation'
+      preLoaderRoute: typeof AppMeditationRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/exercises': {
+      id: '/app/exercises'
+      path: '/exercises'
+      fullPath: '/app/exercises'
+      preLoaderRoute: typeof AppExercisesRouteImport
       parentRoute: typeof AppRoute
     }
     '/app/plan/': {
@@ -150,12 +217,18 @@ const AppPlanRouteWithChildren =
   AppPlanRoute._addFileChildren(AppPlanRouteChildren)
 
 interface AppRouteChildren {
+  AppExercisesRoute: typeof AppExercisesRoute
+  AppMeditationRoute: typeof AppMeditationRoute
   AppPlanRoute: typeof AppPlanRouteWithChildren
+  AppRecipesRoute: typeof AppRecipesRoute
   AppIndexRoute: typeof AppIndexRoute
 }
 
 const AppRouteChildren: AppRouteChildren = {
+  AppExercisesRoute: AppExercisesRoute,
+  AppMeditationRoute: AppMeditationRoute,
   AppPlanRoute: AppPlanRouteWithChildren,
+  AppRecipesRoute: AppRecipesRoute,
   AppIndexRoute: AppIndexRoute,
 }
 
