@@ -9,38 +9,188 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as AppRouteImport } from './routes/app'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AppIndexRouteImport } from './routes/app.index'
+import { Route as AppRecipesRouteImport } from './routes/app.recipes'
+import { Route as AppProfileRouteImport } from './routes/app.profile'
+import { Route as AppProceduresRouteImport } from './routes/app.procedures'
+import { Route as AppPlanRouteImport } from './routes/app.plan'
+import { Route as AppMeditationRouteImport } from './routes/app.meditation'
+import { Route as AppExercisesRouteImport } from './routes/app.exercises'
+import { Route as AppAboutRouteImport } from './routes/app.about'
+import { Route as AppPlanDayRouteImport } from './routes/app.plan.$day'
 
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppRoute = AppRouteImport.update({
+  id: '/app',
+  path: '/app',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppIndexRoute = AppIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppRecipesRoute = AppRecipesRouteImport.update({
+  id: '/recipes',
+  path: '/recipes',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppProfileRoute = AppProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppProceduresRoute = AppProceduresRouteImport.update({
+  id: '/procedures',
+  path: '/procedures',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppPlanRoute = AppPlanRouteImport.update({
+  id: '/plan',
+  path: '/plan',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppMeditationRoute = AppMeditationRouteImport.update({
+  id: '/meditation',
+  path: '/meditation',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppExercisesRoute = AppExercisesRouteImport.update({
+  id: '/exercises',
+  path: '/exercises',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppAboutRoute = AppAboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppPlanDayRoute = AppPlanDayRouteImport.update({
+  id: '/$day',
+  path: '/$day',
+  getParentRoute: () => AppPlanRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/app': typeof AppRouteWithChildren
+  '/login': typeof LoginRoute
+  '/app/about': typeof AppAboutRoute
+  '/app/exercises': typeof AppExercisesRoute
+  '/app/meditation': typeof AppMeditationRoute
+  '/app/plan': typeof AppPlanRouteWithChildren
+  '/app/procedures': typeof AppProceduresRoute
+  '/app/profile': typeof AppProfileRoute
+  '/app/recipes': typeof AppRecipesRoute
+  '/app/': typeof AppIndexRoute
+  '/app/plan/$day': typeof AppPlanDayRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
+  '/app/about': typeof AppAboutRoute
+  '/app/exercises': typeof AppExercisesRoute
+  '/app/meditation': typeof AppMeditationRoute
+  '/app/plan': typeof AppPlanRouteWithChildren
+  '/app/procedures': typeof AppProceduresRoute
+  '/app/profile': typeof AppProfileRoute
+  '/app/recipes': typeof AppRecipesRoute
+  '/app': typeof AppIndexRoute
+  '/app/plan/$day': typeof AppPlanDayRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/app': typeof AppRouteWithChildren
+  '/login': typeof LoginRoute
+  '/app/about': typeof AppAboutRoute
+  '/app/exercises': typeof AppExercisesRoute
+  '/app/meditation': typeof AppMeditationRoute
+  '/app/plan': typeof AppPlanRouteWithChildren
+  '/app/procedures': typeof AppProceduresRoute
+  '/app/profile': typeof AppProfileRoute
+  '/app/recipes': typeof AppRecipesRoute
+  '/app/': typeof AppIndexRoute
+  '/app/plan/$day': typeof AppPlanDayRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/app'
+    | '/login'
+    | '/app/about'
+    | '/app/exercises'
+    | '/app/meditation'
+    | '/app/plan'
+    | '/app/procedures'
+    | '/app/profile'
+    | '/app/recipes'
+    | '/app/'
+    | '/app/plan/$day'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/login'
+    | '/app/about'
+    | '/app/exercises'
+    | '/app/meditation'
+    | '/app/plan'
+    | '/app/procedures'
+    | '/app/profile'
+    | '/app/recipes'
+    | '/app'
+    | '/app/plan/$day'
+  id:
+    | '__root__'
+    | '/'
+    | '/app'
+    | '/login'
+    | '/app/about'
+    | '/app/exercises'
+    | '/app/meditation'
+    | '/app/plan'
+    | '/app/procedures'
+    | '/app/profile'
+    | '/app/recipes'
+    | '/app/'
+    | '/app/plan/$day'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AppRoute: typeof AppRouteWithChildren
+  LoginRoute: typeof LoginRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app': {
+      id: '/app'
+      path: '/app'
+      fullPath: '/app'
+      preLoaderRoute: typeof AppRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +198,111 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/app/': {
+      id: '/app/'
+      path: '/'
+      fullPath: '/app/'
+      preLoaderRoute: typeof AppIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/recipes': {
+      id: '/app/recipes'
+      path: '/recipes'
+      fullPath: '/app/recipes'
+      preLoaderRoute: typeof AppRecipesRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/profile': {
+      id: '/app/profile'
+      path: '/profile'
+      fullPath: '/app/profile'
+      preLoaderRoute: typeof AppProfileRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/procedures': {
+      id: '/app/procedures'
+      path: '/procedures'
+      fullPath: '/app/procedures'
+      preLoaderRoute: typeof AppProceduresRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/plan': {
+      id: '/app/plan'
+      path: '/plan'
+      fullPath: '/app/plan'
+      preLoaderRoute: typeof AppPlanRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/meditation': {
+      id: '/app/meditation'
+      path: '/meditation'
+      fullPath: '/app/meditation'
+      preLoaderRoute: typeof AppMeditationRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/exercises': {
+      id: '/app/exercises'
+      path: '/exercises'
+      fullPath: '/app/exercises'
+      preLoaderRoute: typeof AppExercisesRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/about': {
+      id: '/app/about'
+      path: '/about'
+      fullPath: '/app/about'
+      preLoaderRoute: typeof AppAboutRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/plan/$day': {
+      id: '/app/plan/$day'
+      path: '/$day'
+      fullPath: '/app/plan/$day'
+      preLoaderRoute: typeof AppPlanDayRouteImport
+      parentRoute: typeof AppPlanRoute
+    }
   }
 }
 
+interface AppPlanRouteChildren {
+  AppPlanDayRoute: typeof AppPlanDayRoute
+}
+
+const AppPlanRouteChildren: AppPlanRouteChildren = {
+  AppPlanDayRoute: AppPlanDayRoute,
+}
+
+const AppPlanRouteWithChildren =
+  AppPlanRoute._addFileChildren(AppPlanRouteChildren)
+
+interface AppRouteChildren {
+  AppAboutRoute: typeof AppAboutRoute
+  AppExercisesRoute: typeof AppExercisesRoute
+  AppMeditationRoute: typeof AppMeditationRoute
+  AppPlanRoute: typeof AppPlanRouteWithChildren
+  AppProceduresRoute: typeof AppProceduresRoute
+  AppProfileRoute: typeof AppProfileRoute
+  AppRecipesRoute: typeof AppRecipesRoute
+  AppIndexRoute: typeof AppIndexRoute
+}
+
+const AppRouteChildren: AppRouteChildren = {
+  AppAboutRoute: AppAboutRoute,
+  AppExercisesRoute: AppExercisesRoute,
+  AppMeditationRoute: AppMeditationRoute,
+  AppPlanRoute: AppPlanRouteWithChildren,
+  AppProceduresRoute: AppProceduresRoute,
+  AppProfileRoute: AppProfileRoute,
+  AppRecipesRoute: AppRecipesRoute,
+  AppIndexRoute: AppIndexRoute,
+}
+
+const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AppRoute: AppRouteWithChildren,
+  LoginRoute: LoginRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
