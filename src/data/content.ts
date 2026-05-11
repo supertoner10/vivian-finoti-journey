@@ -1,0 +1,45 @@
+export const RECIPES = [
+  { name: "Bowl Detox Verde", cat: "Detox", desc: "Couve, maçã, gengibre, hortelã e limão batidos com água de coco.", time: "5 min" },
+  { name: "Salada Power", cat: "Low Carb", desc: "Folhas, ovo cozido, abacate, sementes e azeite extra virgem.", time: "10 min" },
+  { name: "Salmão Grelhado", cat: "Fitness", desc: "Salmão com aspargos e limão siciliano, alta proteína.", time: "20 min" },
+  { name: "Smoothie Rosa", cat: "Smoothie", desc: "Frutas vermelhas, banana e iogurte natural.", time: "5 min" },
+  { name: "Wrap Integral", cat: "Fitness", desc: "Frango grelhado, rúcula e tomate em tortilha integral.", time: "15 min" },
+  { name: "Sopa Detox", cat: "Detox", desc: "Couve, abobrinha e gengibre — leveza imediata.", time: "25 min" },
+  { name: "Panqueca Proteica", cat: "Fitness", desc: "Banana, ovo e aveia — pré-treino perfeito.", time: "10 min" },
+  { name: "Chá Detox Premium", cat: "Chás", desc: "Hibisco, gengibre, limão e hortelã.", time: "10 min" },
+  { name: "Bowl de Açaí Puro", cat: "Smoothie", desc: "Açaí sem açúcar, banana, granola e chia.", time: "8 min" },
+  { name: "Tilápia ao Limão", cat: "Low Carb", desc: "Filé grelhado com purê de couve-flor.", time: "20 min" },
+];
+
+export const EXERCISES = [
+  { name: "Yoga Matinal", duration: 15, desc: "Saudação ao sol, mobilidade e respiração." },
+  { name: "Treino HIIT", duration: 20, desc: "Cardio intenso para queima rápida." },
+  { name: "Glúteos em Casa", duration: 18, desc: "Agachamento, afundo e ponte." },
+  { name: "Caminhada Acelerada", duration: 30, desc: "Aeróbico leve, ideal para emagrecer." },
+  { name: "Pilates Iniciante", duration: 20, desc: "Fortalece o core e melhora a postura." },
+  { name: "Alongamento Total", duration: 15, desc: "Relaxa o corpo e alivia tensões." },
+  { name: "Cardio Dance", duration: 25, desc: "Queime calorias dançando." },
+  { name: "Treino Abdominal", duration: 12, desc: "Sequência completa de abdômen." },
+];
+
+export const MEDITATIONS = [
+  { name: "Meditação Guiada", desc: "Encontre paz interior em 10 minutos.", duration: 10, type: "Mindfulness" },
+  { name: "Sons da Natureza", desc: "Floresta, chuva e oceano.", duration: 30, type: "Sons" },
+  { name: "Respiração Anti-Ansiedade", desc: "Técnica 4-7-8 para acalmar.", duration: 7, type: "Respiração" },
+  { name: "Músicas Relaxantes", desc: "Frequências 432Hz e piano suave.", duration: 45, type: "Música" },
+  { name: "Relaxamento para Dormir", desc: "Body scan profundo antes de dormir.", duration: 20, type: "Sono" },
+  { name: "Meditação da Autoestima", desc: "Reconecte-se com seu valor.", duration: 12, type: "Mindfulness" },
+];
+
+export const PROCEDURES = [
+  { name: "Depilação a Laser", desc: "Diga adeus aos pelos com tecnologia de ponta.", benefits: ["Pele lisa duradoura", "Sem irritação", "Resultados rápidos"] },
+  { name: "Botox", desc: "Suaviza linhas de expressão com naturalidade.", benefits: ["Aspecto rejuvenescido", "Resultados imediatos", "Aplicação rápida"] },
+  { name: "Preenchimento", desc: "Realce volume e contornos faciais.", benefits: ["Lábios definidos", "Olheiras suavizadas", "Harmonia facial"] },
+  { name: "Microagulhamento", desc: "Estimula colágeno para uma pele renovada.", benefits: ["Reduz cicatrizes", "Pele firme", "Textura uniforme"] },
+  { name: "Radiofrequência", desc: "Firmeza e flacidez tratadas com calor controlado.", benefits: ["Pele firme", "Combate flacidez", "Sem dor"] },
+  { name: "Criolipólise", desc: "Eliminação de gordura localizada com frio.", benefits: ["Sem cirurgia", "Resultado real", "Procedimento seguro"] },
+  { name: "Drenagem Linfática", desc: "Reduz inchaço e ativa a circulação.", benefits: ["Menos retenção", "Pernas leves", "Bem-estar"] },
+  { name: "Massagem Modeladora", desc: "Modela o corpo e combate gordura localizada.", benefits: ["Modelagem", "Anti-celulite", "Relaxamento"] },
+  { name: "Tratamentos Faciais", desc: "Limpeza profunda, peelings e rejuvenescimento.", benefits: ["Pele limpa", "Brilho saudável", "Anti-idade"] },
+  { name: "Tratamentos Corporais", desc: "Protocolos personalizados para cada objetivo.", benefits: ["Resultado visível", "Cuidado completo", "Personalizado"] },
+];
