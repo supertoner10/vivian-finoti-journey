@@ -12,14 +12,14 @@ export const RECIPES = [
 ];
 
 export const EXERCISES = [
-  { name: "Yoga Matinal", duration: 15, desc: "Saudação ao sol, mobilidade e respiração." },
-  { name: "Treino HIIT", duration: 20, desc: "Cardio intenso para queima rápida." },
-  { name: "Glúteos em Casa", duration: 18, desc: "Agachamento, afundo e ponte." },
-  { name: "Caminhada Acelerada", duration: 30, desc: "Aeróbico leve, ideal para emagrecer." },
-  { name: "Pilates Iniciante", duration: 20, desc: "Fortalece o core e melhora a postura." },
-  { name: "Alongamento Total", duration: 15, desc: "Relaxa o corpo e alivia tensões." },
-  { name: "Cardio Dance", duration: 25, desc: "Queime calorias dançando." },
-  { name: "Treino Abdominal", duration: 12, desc: "Sequência completa de abdômen." },
+  { name: "Yoga Matinal", duration: 15, desc: "Saudação ao sol, mobilidade e respiração.", url: "https://www.youtube.com/results?search_query=yoga+matinal+15+minutos" },
+  { name: "Treino HIIT", duration: 20, desc: "Cardio intenso para queima rápida.", url: "https://www.youtube.com/results?search_query=treino+hiit+20+minutos+emagrecer" },
+  { name: "Glúteos em Casa", duration: 18, desc: "Agachamento, afundo e ponte.", url: "https://www.youtube.com/results?search_query=treino+gluteos+em+casa" },
+  { name: "Caminhada Acelerada", duration: 30, desc: "Aeróbico leve, ideal para emagrecer.", url: "https://www.youtube.com/results?search_query=caminhada+acelerada+em+casa" },
+  { name: "Pilates Iniciante", duration: 20, desc: "Fortalece o core e melhora a postura.", url: "https://www.youtube.com/results?search_query=pilates+iniciante+em+casa" },
+  { name: "Alongamento Total", duration: 15, desc: "Relaxa o corpo e alivia tensões.", url: "https://www.youtube.com/results?search_query=alongamento+corpo+todo+15+minutos" },
+  { name: "Cardio Dance", duration: 25, desc: "Queime calorias dançando.", url: "https://www.youtube.com/results?search_query=dance+workout+emagrecer" },
+  { name: "Treino Abdominal", duration: 12, desc: "Sequência completa de abdômen.", url: "https://www.youtube.com/results?search_query=treino+abdominal+10+minutos" },
 ];
 
 export const MEDITATIONS = [
