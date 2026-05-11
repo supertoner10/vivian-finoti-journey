@@ -13,7 +13,7 @@ export const Route = createFileRoute("/app/plan_/$day")({
 });
 
 function DayPage() {
-  const { day } = useParams({ from: "/app/plan/$day" });
+  const { day } = useParams({ from: "/app/plan_/$day" });
   const nav = useNavigate();
   const dayNum = Number(day);
   const data = PLAN_DAYS.find((d) => d.day === dayNum);
