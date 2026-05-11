@@ -23,12 +23,12 @@ export const EXERCISES = [
 ];
 
 export const MEDITATIONS = [
-  { name: "Meditação Guiada", desc: "Encontre paz interior em 10 minutos.", duration: 10, type: "Mindfulness" },
-  { name: "Sons da Natureza", desc: "Floresta, chuva e oceano.", duration: 30, type: "Sons" },
-  { name: "Respiração Anti-Ansiedade", desc: "Técnica 4-7-8 para acalmar.", duration: 7, type: "Respiração" },
-  { name: "Músicas Relaxantes", desc: "Frequências 432Hz e piano suave.", duration: 45, type: "Música" },
-  { name: "Relaxamento para Dormir", desc: "Body scan profundo antes de dormir.", duration: 20, type: "Sono" },
-  { name: "Meditação da Autoestima", desc: "Reconecte-se com seu valor.", duration: 12, type: "Mindfulness" },
+  { name: "Meditação Guiada", desc: "Encontre paz interior em 10 minutos.", duration: 10, type: "Mindfulness", url: "https://www.youtube.com/results?search_query=medita%C3%A7%C3%A3o+guiada+10+minutos" },
+  { name: "Sons da Natureza", desc: "Floresta, chuva e oceano.", duration: 30, type: "Sons", url: "https://www.youtube.com/results?search_query=sons+da+natureza+relaxante" },
+  { name: "Respiração Anti-Ansiedade", desc: "Técnica 4-7-8 para acalmar.", duration: 7, type: "Respiração", url: "https://www.youtube.com/results?search_query=respira%C3%A7%C3%A3o+4-7-8+ansiedade" },
+  { name: "Músicas Relaxantes 432Hz", desc: "Frequências 432Hz e piano suave.", duration: 45, type: "Música", url: "https://open.spotify.com/search/musicas%20relaxantes%20432hz" },
+  { name: "Relaxamento para Dormir", desc: "Body scan profundo antes de dormir.", duration: 20, type: "Sono", url: "https://www.youtube.com/results?search_query=relaxamento+para+dormir+profundo" },
+  { name: "Meditação da Autoestima", desc: "Reconecte-se com seu valor.", duration: 12, type: "Mindfulness", url: "https://www.youtube.com/results?search_query=medita%C3%A7%C3%A3o+autoestima+feminina" },
 ];
 
 export const PROCEDURES = [
