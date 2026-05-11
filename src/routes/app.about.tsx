@@ -4,7 +4,17 @@ import { Logo } from "@/components/app/Logo";
 import { whatsappUrl } from "@/components/app/WhatsappFab";
 import { Instagram, Facebook, MapPin, MessageCircle } from "lucide-react";
 
-export const Route = createFileRoute("/app/about")({ component: About });
+export const Route = createFileRoute("/app/about")({
+  component: About,
+  head: () => ({
+    meta: [
+      { title: "Sobre a Clínica Vivian Finoti" },
+      { name: "description", content: "Conheça a Clínica Vivian Finoti Estética Avançada — beleza, autoestima e tecnologia em um só lugar." },
+      { property: "og:title", content: "Sobre a Clínica Vivian Finoti" },
+      { property: "og:description", content: "Conheça a Clínica Vivian Finoti Estética Avançada — beleza, autoestima e tecnologia em um só lugar." },
+    ],
+  }),
+});
 
 function About() {
   return (

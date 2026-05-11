@@ -6,7 +6,17 @@ import { whatsappUrl } from "@/components/app/WhatsappFab";
 import clinicImg from "@/assets/clinic.jpg";
 import { Sparkles, Calendar } from "lucide-react";
 
-export const Route = createFileRoute("/app/procedures")({ component: Procedures });
+export const Route = createFileRoute("/app/procedures")({
+  component: Procedures,
+  head: () => ({
+    meta: [
+      { title: "Procedimentos Estéticos | Vivian Finoti" },
+      { name: "description", content: "Botox, preenchimento, criolipólise, depilação a laser e mais — agende sua avaliação." },
+      { property: "og:title", content: "Procedimentos Estéticos | Vivian Finoti" },
+      { property: "og:description", content: "Botox, preenchimento, criolipólise, depilação a laser e mais — agende sua avaliação." },
+    ],
+  }),
+});
 
 function Procedures() {
   return (
