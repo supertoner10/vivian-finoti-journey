@@ -20,7 +20,7 @@ import { Route as AppPlanRouteImport } from './routes/app.plan'
 import { Route as AppMeditationRouteImport } from './routes/app.meditation'
 import { Route as AppExercisesRouteImport } from './routes/app.exercises'
 import { Route as AppAboutRouteImport } from './routes/app.about'
-import { Route as AppPlanRouteImport } from './routes/app.plan.'
+import { Route as AppPlanDayRouteImport } from './routes/app.plan.$day'
 
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
@@ -77,9 +77,9 @@ const AppAboutRoute = AppAboutRouteImport.update({
   path: '/about',
   getParentRoute: () => AppRoute,
 } as any)
-const AppPlanRoute = AppPlanRouteImport.update({
-  id: '/',
-  path: '/',
+const AppPlanDayRoute = AppPlanDayRouteImport.update({
+  id: '/$day',
+  path: '/$day',
   getParentRoute: () => AppPlanRoute,
 } as any)
 
@@ -95,7 +95,7 @@ export interface FileRoutesByFullPath {
   '/app/profile': typeof AppProfileRoute
   '/app/recipes': typeof AppRecipesRoute
   '/app/': typeof AppIndexRoute
-  '/app/plan/': typeof AppPlanRoute
+  '/app/plan/$day': typeof AppPlanDayRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -103,11 +103,12 @@ export interface FileRoutesByTo {
   '/app/about': typeof AppAboutRoute
   '/app/exercises': typeof AppExercisesRoute
   '/app/meditation': typeof AppMeditationRoute
+  '/app/plan': typeof AppPlanRouteWithChildren
   '/app/procedures': typeof AppProceduresRoute
   '/app/profile': typeof AppProfileRoute
   '/app/recipes': typeof AppRecipesRoute
   '/app': typeof AppIndexRoute
-  '/app/plan': typeof AppPlanRoute
+  '/app/plan/$day': typeof AppPlanDayRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -122,7 +123,7 @@ export interface FileRoutesById {
   '/app/profile': typeof AppProfileRoute
   '/app/recipes': typeof AppRecipesRoute
   '/app/': typeof AppIndexRoute
-  '/app/plan/': typeof AppPlanRoute
+  '/app/plan/$day': typeof AppPlanDayRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -138,7 +139,7 @@ export interface FileRouteTypes {
     | '/app/profile'
     | '/app/recipes'
     | '/app/'
-    | '/app/plan/'
+    | '/app/plan/$day'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -146,11 +147,12 @@ export interface FileRouteTypes {
     | '/app/about'
     | '/app/exercises'
     | '/app/meditation'
+    | '/app/plan'
     | '/app/procedures'
     | '/app/profile'
     | '/app/recipes'
     | '/app'
-    | '/app/plan'
+    | '/app/plan/$day'
   id:
     | '__root__'
     | '/'
@@ -164,7 +166,7 @@ export interface FileRouteTypes {
     | '/app/profile'
     | '/app/recipes'
     | '/app/'
-    | '/app/plan/'
+    | '/app/plan/$day'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -252,22 +254,22 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppAboutRouteImport
       parentRoute: typeof AppRoute
     }
-    '/app/plan/': {
-      id: '/app/plan/'
-      path: '/'
-      fullPath: '/app/plan/'
-      preLoaderRoute: typeof AppPlanRouteImport
+    '/app/plan/$day': {
+      id: '/app/plan/$day'
+      path: '/$day'
+      fullPath: '/app/plan/$day'
+      preLoaderRoute: typeof AppPlanDayRouteImport
       parentRoute: typeof AppPlanRoute
     }
   }
 }
 
 interface AppPlanRouteChildren {
-  AppPlanRoute: typeof AppPlanRoute
+  AppPlanDayRoute: typeof AppPlanDayRoute
 }
 
 const AppPlanRouteChildren: AppPlanRouteChildren = {
-  AppPlanRoute: AppPlanRoute,
+  AppPlanDayRoute: AppPlanDayRoute,
 }
 
 const AppPlanRouteWithChildren =
