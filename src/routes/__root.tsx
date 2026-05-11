@@ -71,20 +71,40 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   head: () => ({
     meta: [
       { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Vivian Finoti Estética Avançada" },
-      { name: "description", content: "Beleza e Cuidado em um só lugar — plano de transformação 30 dias e procedimentos estéticos premium." },
-      { name: "author", content: "Vivian Finoti" },
+      { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
+      { name: "theme-color", content: "#d8a7a0" },
+      { title: "Vivian Finoti Estética Avançada — Beleza e Cuidado" },
+      { name: "description", content: "Clínica Vivian Finoti: plano de transformação em 30 dias, receitas, exercícios, meditação e procedimentos estéticos premium." },
+      { name: "keywords", content: "estética avançada, vivian finoti, botox, preenchimento, depilação a laser, criolipólise, emagrecimento, autoestima" },
+      { name: "author", content: "Vivian Finoti Estética Avançada" },
+      { name: "robots", content: "index, follow" },
       { property: "og:title", content: "Vivian Finoti Estética Avançada" },
       { property: "og:description", content: "Beleza e Cuidado em um só lugar." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
+      { property: "og:locale", content: "pt_BR" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" },
       { rel: "stylesheet", href: appCss },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BeautySalon",
+          name: "Clínica Vivian Finoti Estética Avançada",
+          description: "Beleza e Cuidado em um só lugar.",
+          telephone: "+55 11 99842-8546",
+          sameAs: [
+            "https://www.facebook.com/profile.php?id=61574353801473",
+            "https://www.instagram.com/vivianfinoti_esteticaavancada/",
+          ],
+        }),
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -95,7 +115,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <head>
         <HeadContent />
       </head>
