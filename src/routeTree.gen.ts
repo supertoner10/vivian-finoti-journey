@@ -20,7 +20,7 @@ import { Route as AppPlanRouteImport } from './routes/app.plan'
 import { Route as AppMeditationRouteImport } from './routes/app.meditation'
 import { Route as AppExercisesRouteImport } from './routes/app.exercises'
 import { Route as AppAboutRouteImport } from './routes/app.about'
-import { Route as AppPlanDayRouteImport } from './routes/app.plan.$day'
+import { Route as AppPlanDayRouteImport } from './routes/app.plan_.$day'
 
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
@@ -78,9 +78,9 @@ const AppAboutRoute = AppAboutRouteImport.update({
   getParentRoute: () => AppRoute,
 } as any)
 const AppPlanDayRoute = AppPlanDayRouteImport.update({
-  id: '/$day',
-  path: '/$day',
-  getParentRoute: () => AppPlanRoute,
+  id: '/plan_/$day',
+  path: '/plan/$day',
+  getParentRoute: () => AppRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -90,7 +90,7 @@ export interface FileRoutesByFullPath {
   '/app/about': typeof AppAboutRoute
   '/app/exercises': typeof AppExercisesRoute
   '/app/meditation': typeof AppMeditationRoute
-  '/app/plan': typeof AppPlanRouteWithChildren
+  '/app/plan': typeof AppPlanRoute
   '/app/procedures': typeof AppProceduresRoute
   '/app/profile': typeof AppProfileRoute
   '/app/recipes': typeof AppRecipesRoute
@@ -103,7 +103,7 @@ export interface FileRoutesByTo {
   '/app/about': typeof AppAboutRoute
   '/app/exercises': typeof AppExercisesRoute
   '/app/meditation': typeof AppMeditationRoute
-  '/app/plan': typeof AppPlanRouteWithChildren
+  '/app/plan': typeof AppPlanRoute
   '/app/procedures': typeof AppProceduresRoute
   '/app/profile': typeof AppProfileRoute
   '/app/recipes': typeof AppRecipesRoute
@@ -118,12 +118,12 @@ export interface FileRoutesById {
   '/app/about': typeof AppAboutRoute
   '/app/exercises': typeof AppExercisesRoute
   '/app/meditation': typeof AppMeditationRoute
-  '/app/plan': typeof AppPlanRouteWithChildren
+  '/app/plan': typeof AppPlanRoute
   '/app/procedures': typeof AppProceduresRoute
   '/app/profile': typeof AppProfileRoute
   '/app/recipes': typeof AppRecipesRoute
   '/app/': typeof AppIndexRoute
-  '/app/plan/$day': typeof AppPlanDayRoute
+  '/app/plan_/$day': typeof AppPlanDayRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -166,7 +166,7 @@ export interface FileRouteTypes {
     | '/app/profile'
     | '/app/recipes'
     | '/app/'
-    | '/app/plan/$day'
+    | '/app/plan_/$day'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -254,47 +254,38 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppAboutRouteImport
       parentRoute: typeof AppRoute
     }
-    '/app/plan/$day': {
-      id: '/app/plan/$day'
-      path: '/$day'
+    '/app/plan_/$day': {
+      id: '/app/plan_/$day'
+      path: '/plan/$day'
       fullPath: '/app/plan/$day'
       preLoaderRoute: typeof AppPlanDayRouteImport
-      parentRoute: typeof AppPlanRoute
+      parentRoute: typeof AppRoute
     }
   }
 }
-
-interface AppPlanRouteChildren {
-  AppPlanDayRoute: typeof AppPlanDayRoute
-}
-
-const AppPlanRouteChildren: AppPlanRouteChildren = {
-  AppPlanDayRoute: AppPlanDayRoute,
-}
-
-const AppPlanRouteWithChildren =
-  AppPlanRoute._addFileChildren(AppPlanRouteChildren)
 
 interface AppRouteChildren {
   AppAboutRoute: typeof AppAboutRoute
   AppExercisesRoute: typeof AppExercisesRoute
   AppMeditationRoute: typeof AppMeditationRoute
-  AppPlanRoute: typeof AppPlanRouteWithChildren
+  AppPlanRoute: typeof AppPlanRoute
   AppProceduresRoute: typeof AppProceduresRoute
   AppProfileRoute: typeof AppProfileRoute
   AppRecipesRoute: typeof AppRecipesRoute
   AppIndexRoute: typeof AppIndexRoute
+  AppPlanDayRoute: typeof AppPlanDayRoute
 }
 
 const AppRouteChildren: AppRouteChildren = {
   AppAboutRoute: AppAboutRoute,
   AppExercisesRoute: AppExercisesRoute,
   AppMeditationRoute: AppMeditationRoute,
-  AppPlanRoute: AppPlanRouteWithChildren,
+  AppPlanRoute: AppPlanRoute,
   AppProceduresRoute: AppProceduresRoute,
   AppProfileRoute: AppProfileRoute,
   AppRecipesRoute: AppRecipesRoute,
   AppIndexRoute: AppIndexRoute,
+  AppPlanDayRoute: AppPlanDayRoute,
 }
 
 const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)

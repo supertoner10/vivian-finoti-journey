@@ -64,7 +64,7 @@ function PlanPage() {
               <li key={d.day}>
                 <button
                   disabled={locked}
-                  onClick={() => nav({ to: "/app/plan/$day", params: { day: String(d.day) } })}
+                  onClick={() => nav({ to: "/app/plan_/$day", params: { day: String(d.day) } })}
                   className={`glass flex w-full items-center gap-3 rounded-2xl p-3 text-left shadow-soft transition ${
                     locked ? "opacity-55" : "active:scale-[0.99]"
                   }`}

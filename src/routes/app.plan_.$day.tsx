@@ -6,14 +6,14 @@ import { completeDay, getPlan } from "@/lib/plan";
 import { ChefHat, Leaf, Dumbbell, Heart, Sparkles, CheckCircle2 } from "lucide-react";
 import { useState } from "react";
 
-export const Route = createFileRoute("/app/plan/$day")({
+export const Route = createFileRoute("/app/plan_/$day")({
   component: DayPage,
   notFoundComponent: () => <p className="p-10 text-center">Dia não encontrado</p>,
   errorComponent: () => <p className="p-10 text-center">Erro ao carregar.</p>,
 });
 
 function DayPage() {
-  const { day } = useParams({ from: "/app/plan/$day" });
+  const { day } = useParams({ from: "/app/plan_/$day" });
   const nav = useNavigate();
   const dayNum = Number(day);
   const data = PLAN_DAYS.find((d) => d.day === dayNum);
