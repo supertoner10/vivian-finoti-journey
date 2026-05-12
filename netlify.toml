@@ -1,8 +1,20 @@
+# Netlify SSR adapter for TanStack Start (Cloudflare Worker bundle wrapped in a Node Function)
 [build]
   command = "npm run build"
-  publish = "dist"
+  publish = "dist/client"
+  functions = "netlify/functions"
 
+[functions]
+  node_bundler = "esbuild"
+  # Make sure the compiled SSR worker bundle is shipped with the function.
+  included_files = ["dist/server/**"]
+  # Node 20 supports the `node:` prefix and Web Fetch APIs that the Worker bundle expects.
+  [functions."server"]
+    node_version = "20"
+
+# Anything not served as a static asset from dist/client falls through to the SSR function.
 [[redirects]]
   from = "/*"
-  to = "/index.html"
+  to = "/.netlify/functions/server"
   status = 200
+  force = false
