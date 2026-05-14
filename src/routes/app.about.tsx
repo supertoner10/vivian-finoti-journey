@@ -3,6 +3,7 @@ import { PageHeader } from "@/components/app/PageHeader";
 import { Logo } from "@/components/app/Logo";
 import { whatsappUrl } from "@/components/app/WhatsappFab";
 import { Instagram, Facebook, MapPin, MessageCircle } from "lucide-react";
+import clinicaPoster from "@/assets/clinica-vivian-finoti.jpg";
 
 export const Route = createFileRoute("/app/about")({
   component: About,
@@ -22,6 +23,14 @@ function About() {
       <PageHeader title="Sobre a Clínica" back={false} />
       <main className="px-5 pb-6 text-center">
         <Logo className="mx-auto h-32 w-auto" />
+        <div className="mx-auto mt-4 max-w-sm overflow-hidden rounded-3xl shadow-soft">
+          <img
+            src={clinicaPoster}
+            alt="Clínica Vivian Finoti Estética Avançada — serviços e contato"
+            loading="lazy"
+            className="h-auto w-full object-cover"
+          />
+        </div>
         <p className="mx-auto mt-3 max-w-xs text-sm leading-relaxed text-muted-foreground">
           A <span className="font-semibold text-foreground">Vivian Finoti Estética Avançada</span>, localizada em
           Guarulhos – Cocaia, é referência em tratamentos faciais e corporais com tecnologia moderna e resultados
