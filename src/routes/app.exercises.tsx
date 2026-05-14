@@ -52,7 +52,7 @@ function Exercises() {
           </div>
         </div>
 
-        <ul className="mt-5 space-y-3">
+        <ul className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {EXERCISES.map((e, i) => (
             <motion.li
               key={e.name}
@@ -61,17 +61,23 @@ function Exercises() {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: 0.04 * i, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
               whileTap={{ scale: 0.98 }}
-              className="glass rounded-2xl shadow-soft"
+              className="glass overflow-hidden rounded-2xl shadow-soft"
             >
-              <a href={e.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4">
-                <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-gradient-rose font-display text-primary-foreground">
-                  {e.duration}'
+              <a href={e.url} target="_blank" rel="noopener noreferrer" className="block group">
+                <div className="relative h-44 w-full overflow-hidden">
+                  <img src={e.image} alt={e.name} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                  <div className="absolute left-3 top-3 rounded-full bg-gradient-rose px-3 py-1 text-xs font-semibold text-primary-foreground shadow-glow">
+                    {e.duration} min
+                  </div>
+                  <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between text-white">
+                    <div>
+                      <p className="font-display text-lg leading-tight">{e.name}</p>
+                      <p className="text-[11px] opacity-90">{e.desc}</p>
+                    </div>
+                    <ExternalLink className="h-4 w-4 shrink-0 opacity-90" />
+                  </div>
                 </div>
-                <div className="flex-1">
-                  <p className="font-semibold">{e.name}</p>
-                  <p className="text-xs text-muted-foreground">{e.desc}</p>
-                </div>
-                <ExternalLink className="h-4 w-4 text-muted-foreground" />
               </a>
             </motion.li>
           ))}

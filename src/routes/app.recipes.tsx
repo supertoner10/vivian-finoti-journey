@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { PageHeader } from "@/components/app/PageHeader";
 import { RECIPES } from "@/data/content";
 import recipesImg from "@/assets/recipes.jpg";
-import { Clock } from "lucide-react";
+import { Clock, ChefHat } from "lucide-react";
 
 export const Route = createFileRoute("/app/recipes")({
   component: Recipes,
@@ -43,23 +43,49 @@ function Recipes() {
             </button>
           ))}
         </div>
-        <ul className="mt-2 space-y-3">
+        <ul className="mt-2 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {list.map((r, i) => (
             <motion.li
               key={r.name}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.04 * i }}
-              className="glass rounded-2xl p-4 shadow-soft"
+              className="glass overflow-hidden rounded-2xl shadow-soft"
             >
-              <div className="flex items-center justify-between">
-                <p className="font-semibold text-foreground">{r.name}</p>
-                <span className="rounded-full bg-secondary px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-foreground">
+              <div className="relative h-44 w-full overflow-hidden">
+                <img src={r.image} alt={r.name} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" />
+                <span className="absolute right-3 top-3 rounded-full bg-white/90 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-foreground shadow-soft">
                   {r.cat}
                 </span>
               </div>
-              <p className="mt-1 text-sm text-muted-foreground">{r.desc}</p>
-              <p className="mt-2 flex items-center gap-1 text-xs text-primary"><Clock className="h-3.5 w-3.5" /> {r.time}</p>
+              <div className="p-4">
+                <p className="font-semibold text-foreground">{r.name}</p>
+                <p className="mt-1 text-sm text-muted-foreground">{r.desc}</p>
+                <p className="mt-2 flex items-center gap-1 text-xs text-primary"><Clock className="h-3.5 w-3.5" /> {r.time}</p>
+                {r.ingredients && (
+                  <details className="mt-3 group">
+                    <summary className="flex cursor-pointer items-center gap-1.5 text-xs font-semibold text-primary">
+                      <ChefHat className="h-3.5 w-3.5" /> Ver receita completa
+                    </summary>
+                    <div className="mt-2 space-y-2 text-xs text-foreground">
+                      <div>
+                        <p className="font-semibold uppercase tracking-wider text-muted-foreground">Ingredientes</p>
+                        <ul className="mt-1 list-disc pl-4 space-y-0.5">
+                          {r.ingredients.map((it) => <li key={it}>{it}</li>)}
+                        </ul>
+                      </div>
+                      {r.steps && (
+                        <div>
+                          <p className="font-semibold uppercase tracking-wider text-muted-foreground">Modo de preparo</p>
+                          <ol className="mt-1 list-decimal pl-4 space-y-0.5">
+                            {r.steps.map((s) => <li key={s}>{s}</li>)}
+                          </ol>
+                        </div>
+                      )}
+                    </div>
+                  </details>
+                )}
+              </div>
             </motion.li>
           ))}
         </ul>
