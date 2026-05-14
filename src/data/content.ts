@@ -93,6 +93,7 @@ export const RECIPES = [
 
 export const EXERCISES = [
   { name: "Yoga Matinal", duration: 15, desc: "Saudação ao sol, mobilidade e respiração.", url: "https://www.youtube.com/results?search_query=yoga+matinal+15+minutos", image: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=1200&q=80" },
+  { name: "Aeróbico Dance", duration: 30, desc: "Treino aeróbico com música dance para queimar calorias com energia.", url: "https://www.youtube.com/results?search_query=treino+aerobico+dance+emagrecer+30+minutos", image: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=1200&q=80" },
   { name: "Treino HIIT", duration: 20, desc: "Cardio intenso para queima rápida.", url: "https://www.youtube.com/results?search_query=treino+hiit+20+minutos+emagrecer", image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1200&q=80" },
   { name: "Glúteos em Casa", duration: 18, desc: "Agachamento, afundo e ponte.", url: "https://www.youtube.com/results?search_query=treino+gluteos+em+casa", image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1200&q=80" },
   { name: "Caminhada Acelerada", duration: 30, desc: "Aeróbico leve, ideal para emagrecer.", url: "https://www.youtube.com/results?search_query=caminhada+acelerada+em+casa", image: "https://images.unsplash.com/photo-1538905386057-4a5a580c45c3?auto=format&fit=crop&w=1200&q=80" },
