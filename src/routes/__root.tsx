@@ -116,7 +116,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="mx-auto min-h-screen w-full max-w-[480px] bg-gradient-soft shadow-soft">
+      <div className="mx-auto min-h-screen w-full max-w-[480px] bg-gradient-soft shadow-soft md:max-w-3xl lg:max-w-5xl xl:max-w-6xl">
         <Outlet />
       </div>
     </QueryClientProvider>
