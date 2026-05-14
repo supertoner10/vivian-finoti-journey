@@ -1,10 +1,10 @@
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PageHeader } from "@/components/app/PageHeader";
 import { PLAN_DAYS } from "@/data/plan-days";
 import { currentDay, getPlan, resetPlan } from "@/lib/plan";
-import { CheckCircle2, Lock, Sparkles, RotateCcw } from "lucide-react";
+import { CheckCircle2, Sparkles, RotateCcw } from "lucide-react";
 
 export const Route = createFileRoute("/app/plan")({
   component: PlanPage,
@@ -21,9 +21,21 @@ export const Route = createFileRoute("/app/plan")({
 function PlanPage() {
   const nav = useNavigate();
   const [, force] = useState(0);
-  const today = currentDay();
-  const completed = getPlan().completed;
-  const finished = completed.length >= 30;
+  const [today, setToday] = useState(1);
+  const [completed, setCompleted] = useState<number[]>([]);
+  const [finished, setFinished] = useState(false);
+
+  useEffect(() => {
+    const done = getPlan().completed;
+    if (done.length >= 30) {
+      resetPlan();
+      setCompleted([]);
+      setFinished(true);
+    } else {
+      setCompleted(done);
+    }
+    setToday(currentDay());
+  }, []);
 
   return (
     <>
@@ -59,15 +71,11 @@ function PlanPage() {
         <ul className="mt-6 space-y-2">
           {PLAN_DAYS.map((d) => {
             const done = completed.includes(d.day);
-            const locked = d.day > today;
             return (
               <li key={d.day}>
                 <button
-                  disabled={locked}
-                  onClick={() => nav({ to: "/app/plan_/$day", params: { day: String(d.day) } })}
-                  className={`glass flex w-full items-center gap-3 rounded-2xl p-3 text-left shadow-soft transition ${
-                    locked ? "opacity-55" : "active:scale-[0.99]"
-                  }`}
+                  onClick={() => nav({ to: "/app/plan/$day", params: { day: String(d.day) } })}
+                  className="glass flex w-full items-center gap-3 rounded-2xl p-3 text-left shadow-soft transition active:scale-[0.99]"
                 >
                   <div className={`grid h-12 w-12 place-items-center rounded-xl font-display text-lg ${
                     done ? "bg-gradient-rose text-primary-foreground" : "bg-secondary text-foreground"
@@ -78,9 +86,7 @@ function PlanPage() {
                     <p className="font-semibold">Dia {d.day}</p>
                     <p className="line-clamp-1 text-xs text-muted-foreground">{d.motivation}</p>
                   </div>
-                  {locked ? (
-                    <Lock className="h-5 w-5 text-muted-foreground" />
-                  ) : done ? (
+                  {done ? (
                     <CheckCircle2 className="h-6 w-6 text-primary" />
                   ) : (
                     <span className="text-xs font-semibold text-primary">Abrir</span>
