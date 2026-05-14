@@ -32,38 +32,40 @@ function Procedures() {
           </div>
         </div>
 
-        <ul className="mt-5 space-y-3">
+        <ul className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {PROCEDURES.map((p, i) => (
             <motion.li
               key={p.name}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.03 * i }}
-              className="glass rounded-2xl p-4 shadow-soft"
+              className="glass overflow-hidden rounded-2xl shadow-soft"
             >
-              <div className="flex items-start gap-3">
-                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gradient-rose text-primary-foreground">
-                  <Sparkles className="h-5 w-5" />
+              <div className="relative h-44 w-full overflow-hidden">
+                <img src={p.image} alt={p.name} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                <div className="absolute left-3 top-3 grid h-9 w-9 place-items-center rounded-xl bg-white/90 text-primary shadow-soft">
+                  <Sparkles className="h-4 w-4" />
                 </div>
-                <div className="flex-1">
-                  <p className="font-semibold">{p.name}</p>
-                  <p className="text-xs text-muted-foreground">{p.desc}</p>
-                  <ul className="mt-2 flex flex-wrap gap-1.5">
-                    {p.benefits.map((b) => (
-                      <li key={b} className="rounded-full bg-secondary px-2 py-0.5 text-[10px] font-medium text-foreground">
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <p className="absolute bottom-3 left-3 right-3 font-display text-lg text-white">{p.name}</p>
               </div>
-              <a
-                href={whatsappUrl(`Olá, gostaria de agendar ${p.name} na Clínica Vivian Finoti.`)}
-                target="_blank" rel="noopener noreferrer"
-                className="mt-3 flex items-center justify-center gap-2 rounded-full bg-gradient-rose py-2.5 text-sm font-semibold text-primary-foreground shadow-glow"
-              >
-                <Calendar className="h-4 w-4" /> Agendar
-              </a>
+              <div className="p-4">
+                <p className="text-xs text-muted-foreground">{p.desc}</p>
+                <ul className="mt-2 flex flex-wrap gap-1.5">
+                  {p.benefits.map((b) => (
+                    <li key={b} className="rounded-full bg-secondary px-2 py-0.5 text-[10px] font-medium text-foreground">
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href={whatsappUrl(`Olá, gostaria de agendar ${p.name} na Clínica Vivian Finoti.`)}
+                  target="_blank" rel="noopener noreferrer"
+                  className="mt-3 flex items-center justify-center gap-2 rounded-full bg-gradient-rose py-2.5 text-sm font-semibold text-primary-foreground shadow-glow"
+                >
+                  <Calendar className="h-4 w-4" /> Agendar
+                </a>
+              </div>
             </motion.li>
           ))}
         </ul>
