@@ -5,6 +5,7 @@ import { PageHeader } from "@/components/app/PageHeader";
 import { RECIPES } from "@/data/content";
 import recipesImg from "@/assets/recipes.jpg";
 import { Clock, ChefHat } from "lucide-react";
+import { SafeImage } from "@/components/app/SafeImage";
 
 export const Route = createFileRoute("/app/recipes")({
   component: Recipes,
@@ -49,11 +50,11 @@ function Recipes() {
               key={r.name}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.04 * i }}
+              transition={{ delay: Math.min(0.04 * i, 0.3), duration: 0.35 }}
               className="glass overflow-hidden rounded-2xl shadow-soft"
             >
               <div className="relative h-44 w-full overflow-hidden">
-                <img src={r.image} alt={r.name} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" />
+                <SafeImage src={r.image} alt={r.name} className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" />
                 <span className="absolute right-3 top-3 rounded-full bg-white/90 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-foreground shadow-soft">
                   {r.cat}
                 </span>
