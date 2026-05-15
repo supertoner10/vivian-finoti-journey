@@ -5,6 +5,7 @@ import { PageHeader } from "@/components/app/PageHeader";
 import { EXERCISES } from "@/data/content";
 import exercisesImg from "@/assets/exercises.jpg";
 import { Play, Pause, RotateCcw, Timer, ExternalLink } from "lucide-react";
+import { SafeImage } from "@/components/app/SafeImage";
 
 export const Route = createFileRoute("/app/exercises")({
   component: Exercises,
@@ -59,13 +60,13 @@ function Exercises() {
               initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ delay: 0.04 * i, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ delay: Math.min(0.04 * i, 0.3), duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
               whileTap={{ scale: 0.98 }}
               className="glass overflow-hidden rounded-2xl shadow-soft"
             >
               <a href={e.url} target="_blank" rel="noopener noreferrer" className="block group">
                 <div className="relative h-44 w-full overflow-hidden">
-                  <img src={e.image} alt={e.name} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <SafeImage src={e.image} alt={e.name} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
                   <div className="absolute left-3 top-3 rounded-full bg-gradient-rose px-3 py-1 text-xs font-semibold text-primary-foreground shadow-glow">
                     {e.duration} min

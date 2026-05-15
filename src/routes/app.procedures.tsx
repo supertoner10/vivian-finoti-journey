@@ -5,6 +5,7 @@ import { PROCEDURES } from "@/data/content";
 import { whatsappUrl } from "@/components/app/WhatsappFab";
 import clinicImg from "@/assets/clinic.jpg";
 import { Sparkles, Calendar } from "lucide-react";
+import { SafeImage } from "@/components/app/SafeImage";
 
 export const Route = createFileRoute("/app/procedures")({
   component: Procedures,
@@ -38,11 +39,11 @@ function Procedures() {
               key={p.name}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.03 * i }}
+              transition={{ delay: Math.min(0.03 * i, 0.25), duration: 0.35 }}
               className="glass overflow-hidden rounded-2xl shadow-soft"
             >
               <div className="relative h-44 w-full overflow-hidden">
-                <img src={p.image} alt={p.name} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" />
+                <SafeImage src={p.image} alt={p.name} className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 <div className="absolute left-3 top-3 grid h-9 w-9 place-items-center rounded-xl bg-white/90 text-primary shadow-soft">
                   <Sparkles className="h-4 w-4" />
