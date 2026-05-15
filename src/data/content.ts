@@ -110,6 +110,12 @@ export const MEDITATIONS = [
   { name: "Músicas Relaxantes 432Hz", desc: "Frequências 432Hz e piano suave.", duration: 45, type: "Música", url: "https://open.spotify.com/search/musicas%20relaxantes%20432hz" },
   { name: "Relaxamento para Dormir", desc: "Body scan profundo antes de dormir.", duration: 20, type: "Sono", url: "https://www.youtube.com/results?search_query=relaxamento+para+dormir+profundo" },
   { name: "Meditação da Autoestima", desc: "Reconecte-se com seu valor.", duration: 12, type: "Mindfulness", url: "https://www.youtube.com/results?search_query=medita%C3%A7%C3%A3o+autoestima+feminina" },
+  { name: "Top Músicas para Trabalhar (Internacional)", desc: "Playlist focada com hits internacionais para produtividade.", duration: 120, type: "Trabalho", url: "https://www.youtube.com/results?search_query=best+music+for+work+focus+playlist+international" },
+  { name: "Top Músicas para Trabalhar (Nacional)", desc: "As melhores nacionais para concentração no trabalho.", duration: 120, type: "Trabalho", url: "https://www.youtube.com/results?search_query=melhores+m%C3%BAsicas+nacionais+para+trabalhar+concentra%C3%A7%C3%A3o" },
+  { name: "Hits Internacionais 2025", desc: "Playlist com as melhores músicas internacionais do momento.", duration: 90, type: "Internacional", url: "https://www.youtube.com/results?search_query=melhores+m%C3%BAsicas+internacionais+2025+playlist" },
+  { name: "Hits Nacionais 2025", desc: "Os maiores sucessos nacionais para ouvir agora.", duration: 90, type: "Nacional", url: "https://www.youtube.com/results?search_query=melhores+m%C3%BAsicas+nacionais+2025+playlist" },
+  { name: "Lo-Fi Beats para Foco", desc: "Batidas lo-fi instrumentais ideais para estudar e trabalhar.", duration: 180, type: "Trabalho", url: "https://www.youtube.com/results?search_query=lofi+hip+hop+beats+to+work+study" },
+  { name: "MPB Acústica para Trabalhar", desc: "O melhor da MPB em versão suave e produtiva.", duration: 120, type: "Nacional", url: "https://www.youtube.com/results?search_query=mpb+ac%C3%BAstica+para+trabalhar+playlist" },
 ];
 
 export const PROCEDURES = [
