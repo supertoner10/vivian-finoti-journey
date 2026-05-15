@@ -18,7 +18,7 @@ export const Route = createFileRoute("/app/recipes")({
   }),
 });
 
-const cats = ["Todas", "Fitness", "Detox", "Low Carb", "Smoothie", "Chás"];
+const cats = ["Todas", "Carnes", "Frango", "Frutas", "Shakes", "Fitness", "Detox", "Low Carb", "Smoothie", "Chás"];
 
 function Recipes() {
   const [cat, setCat] = useState("Todas");
